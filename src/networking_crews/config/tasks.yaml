@@ -20,7 +20,6 @@ filter_events:
     JSON with a list of filtered events, each with fields:
     event_type, detected_language, organizer_info, relevance_note, estimated_audience
   agent: scout_agent
-  output_pydantic: ScoutOutput
 
 score_events:
   description: >
@@ -51,7 +50,6 @@ score_events:
     JSON with full ranked list and separate top-5, each event with
     total_score, semantic_score, recommendation, recommendation_reason
   agent: analyst_agent
-  output_pydantic: AnalystOutput
   context:
     - filter_events
 
@@ -79,7 +77,6 @@ coordinate_booking:
     JSON with: status (ready/missing_fields), missing_fields list,
     booking_instruction dict, calendar_event_id
   agent: booker_agent
-  output_pydantic: BookingCoordinationResult
 
 generate_challenge:
   description: >
@@ -101,7 +98,6 @@ generate_challenge:
   expected_output: >
     JSON with challenge: methodology_name, description, success_metrics, tips, difficulty
   agent: coach_agent
-  output_pydantic: CoachOutput
   context:
     - coordinate_booking
 
@@ -129,7 +125,6 @@ calculate_roi:
   expected_output: >
     JSON with ROI report and aggregated statistics
   agent: finance_agent
-  output_pydantic: ROIReport
 
 evaluate_challenge:
   description: >
@@ -181,7 +176,6 @@ collect_profile:
   expected_output: >
     JSON with filled user profile
   agent: onboarding_agent
-  output_pydantic: OnboardingResult
 
 # === WEEKLY REPORT TASK ===
 
@@ -204,4 +198,3 @@ weekly_summary:
   expected_output: >
     JSON with full weekly statistics
   agent: finance_agent
-  output_pydantic: AggregatedStats
