@@ -10,7 +10,7 @@ scout_agent:
     difference between a quality meetup with real networking and a mass conference
     with zero value. You ruthlessly filter out noise and keep only what will
     bring real value.
-  llm: google/gemini-2.5-pro
+  llm: anthropic/claude-sonnet-4-20250514
   verbose: true
 
 analyst_agent:
@@ -59,7 +59,7 @@ booker_agent:
     registration form, check if all necessary data is in the user profile,
     and form clear instructions for the auto-fill system. You also create
     Google Calendar events with proper reminders.
-  llm: google/gemini-2.0-flash
+  llm: anthropic/claude-haiku-3-5-20241022
   verbose: true
 
 finance_agent:
