@@ -124,6 +124,16 @@ class NetworkingCrews:
     # -- Crews --
 
     @crew
+    def crew(self) -> Crew:
+        """Default crew for CrewAI Platform deployment."""
+        return Crew(
+            agents=[self.scout_agent(), self.analyst_agent()],
+            tasks=[self.filter_events(), self.score_events()],
+            process=Process.sequential,
+            verbose=True,
+        )
+
+    @crew
     def discovery_crew(self) -> Crew:
         return Crew(
             agents=[self.scout_agent(), self.analyst_agent()],
