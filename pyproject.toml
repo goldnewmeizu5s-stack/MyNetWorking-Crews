@@ -10,7 +10,7 @@ authors = ["Networking Agent Team"]
 
 [tool.poetry.dependencies]
 python = ">=3.10,<=3.13"
-crewai = { extras = ["tools"], version = ">=0.86.0" }
+crewai = { extras = ["tools"], version = ">=1.0.0" }
 httpx = ">=0.27.0"
 psycopg2-binary = ">=2.9.9"
 google-api-python-client = ">=2.100.0"
