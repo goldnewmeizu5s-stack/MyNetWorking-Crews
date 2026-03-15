@@ -133,7 +133,6 @@ class NetworkingCrews:
             verbose=True,
         )
 
-    @crew
     def discovery_crew(self) -> Crew:
         return Crew(
             agents=[self.scout_agent(), self.analyst_agent()],
@@ -142,7 +141,6 @@ class NetworkingCrews:
             verbose=True,
         )
 
-    @crew
     def booking_crew(self) -> Crew:
         return Crew(
             agents=[self.booker_agent(), self.coach_agent()],
@@ -151,7 +149,6 @@ class NetworkingCrews:
             verbose=True,
         )
 
-    @crew
     def debrief_crew(self) -> Crew:
         return Crew(
             agents=[self.finance_agent(), self.coach_agent()],
@@ -160,7 +157,6 @@ class NetworkingCrews:
             verbose=True,
         )
 
-    @crew
     def onboarding_crew(self) -> Crew:
         return Crew(
             agents=[self.onboarding_agent()],
@@ -169,7 +165,6 @@ class NetworkingCrews:
             verbose=True,
         )
 
-    @crew
     def weekly_report_crew(self) -> Crew:
         return Crew(
             agents=[self.finance_agent()],
