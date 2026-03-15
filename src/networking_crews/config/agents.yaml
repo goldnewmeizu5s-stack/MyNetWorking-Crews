@@ -11,8 +11,6 @@ scout_agent:
     with zero value. You ruthlessly filter out noise and keep only what will
     bring real value.
   llm: google/gemini-2.5-pro
-  tools:
-    - perplexity_search
   verbose: true
 
 analyst_agent:
@@ -30,9 +28,6 @@ analyst_agent:
     whether there are hidden costs. You strictly follow the scoring model and
     do not inflate scores.
   llm: anthropic/claude-sonnet-4-20250514
-  tools:
-    - transport_cost
-    - google_calendar
   verbose: true
 
 coach_agent:
@@ -49,8 +44,6 @@ coach_agent:
     large conference needs a third. Your challenges are specific, measurable
     and motivating.
   llm: anthropic/claude-sonnet-4-20250514
-  tools:
-    - methodology_db
   verbose: true
 
 booker_agent:
@@ -67,9 +60,6 @@ booker_agent:
     and form clear instructions for the auto-fill system. You also create
     Google Calendar events with proper reminders.
   llm: google/gemini-2.0-flash
-  tools:
-    - user_profile
-    - google_calendar
   verbose: true
 
 finance_agent:
@@ -84,9 +74,6 @@ finance_agent:
     patterns (which types of events give the best ROI) and give recommendations
     for optimizing the networking budget.
   llm: anthropic/claude-sonnet-4-20250514
-  tools:
-    - transport_cost
-    - currency
   verbose: true
 
 onboarding_agent:
