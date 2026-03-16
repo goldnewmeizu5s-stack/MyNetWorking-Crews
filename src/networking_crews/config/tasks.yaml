@@ -2,23 +2,33 @@
 
 filter_events:
   description: >
-    Filter and enrich the list of raw events.
+    Search for relevant networking events in the user's city using PerplexitySearch tool.
 
-    Raw events (already parsed and deduplicated): {raw_events}
     User context: {context}
+    User profile: {user_profile}
 
-    For each event:
-    1. Evaluate relevance to user interests.
-    2. Use PerplexitySearch to find additional info about organizers: repeat events, reviews, speakers.
-    3. Determine event type: conference | meetup | workshop | networking_dinner | other.
-    4. Determine the event language from description.
-    5. Estimate approximate number of participants.
-    6. Remove clearly irrelevant: wrong topic, outdated, suspicious, spam.
+    Additional pre-parsed events (may be empty): {raw_events}
 
-    Return only events that are potentially interesting to the user.
+    Instructions:
+    1. Use PerplexitySearch to find networking events, tech meetups, conferences,
+       and professional gatherings in the user's city for the next 2 weeks.
+    2. Search queries should be based on user's interests and city from the context.
+       Example searches:
+       - "networking events in [city] [month] [year]"
+       - "tech meetups [city] this week"
+       - "[interest] conference [city] upcoming"
+    3. For each event found, extract: title, date/time, location, price, URL,
+       organizer name, description, event type.
+    4. Combine search results with any pre-parsed events from {raw_events}.
+    5. Remove duplicates and clearly irrelevant events (wrong city, past dates, spam).
+    6. Determine event type: conference | meetup | workshop | networking_dinner | other
+    7. Detect event language from description.
+    8. Return structured JSON list of events.
   expected_output: >
-    JSON with a list of filtered events, each with fields:
-    event_type, detected_language, organizer_info, relevance_note, estimated_audience
+    JSON array of events, each with fields: source, source_id, source_url, title,
+    description, datetime_start, location_name, location_city, ticket_price, currency,
+    language, event_type, organizer_name, relevance_note, estimated_audience.
+    Minimum 3 events if available in the city. Maximum 15.
   agent: scout_agent
 
 score_events:
