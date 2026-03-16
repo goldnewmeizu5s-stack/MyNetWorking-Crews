@@ -10,8 +10,8 @@ scout_agent:
     that match the user's profile. You know how to craft effective search
     queries and extract structured event data from search results.
     You always provide accurate dates, locations, and URLs.
-  llm: anthropic/claude-sonnet-4-20250514
-  verbose: true
+  llm: anthropic/claude-haiku-3-5-20241022
+  verbose: false
 
 analyst_agent:
   role: >
@@ -28,7 +28,7 @@ analyst_agent:
     whether there are hidden costs. You strictly follow the scoring model and
     do not inflate scores.
   llm: anthropic/claude-sonnet-4-20250514
-  verbose: true
+  verbose: false
 
 coach_agent:
   role: >

@@ -130,7 +130,7 @@ class NetworkingCrews:
             agents=[self.scout_agent(), self.analyst_agent()],
             tasks=[self.filter_events(), self.score_events()],
             process=Process.sequential,
-            verbose=True,
+            verbose=False,
         )
 
     def discovery_crew(self) -> Crew:

@@ -10,20 +10,17 @@ filter_events:
     Additional pre-parsed events (may be empty): {raw_events}
 
     Instructions:
-    1. Use PerplexitySearch to find networking events, tech meetups, conferences,
-       and professional gatherings in the user's city for the next 2 weeks.
-    2. Search queries should be based on user's interests and city from the context.
-       Example searches:
-       - "networking events in [city] [month] [year]"
-       - "tech meetups [city] this week"
-       - "[interest] conference [city] upcoming"
-    3. For each event found, extract: title, date/time, location, price, URL,
+    1. Use PerplexitySearch with ONE comprehensive query that combines the user's city
+       and top interests, e.g.: "upcoming networking events, tech meetups, and
+       [interest] conferences in [city] in [month] [year]".
+       IMPORTANT: Make only 1-2 search calls total to keep execution fast.
+    2. For each event found, extract: title, date/time, location, price, URL,
        organizer name, description, event type.
-    4. Combine search results with any pre-parsed events from {raw_events}.
-    5. Remove duplicates and clearly irrelevant events (wrong city, past dates, spam).
-    6. Determine event type: conference | meetup | workshop | networking_dinner | other
-    7. Detect event language from description.
-    8. Return structured JSON list of events.
+    3. Combine search results with any pre-parsed events from {raw_events}.
+    4. Remove duplicates and clearly irrelevant events (wrong city, past dates, spam).
+    5. Determine event type: conference | meetup | workshop | networking_dinner | other
+    6. Detect event language from description.
+    7. Return structured JSON list of events.
   expected_output: >
     JSON array of events, each with fields: source, source_id, source_url, title,
     description, datetime_start, location_name, location_city, ticket_price, currency,
