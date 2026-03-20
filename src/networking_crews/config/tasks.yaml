@@ -13,7 +13,7 @@ filter_events:
     1. Use PerplexitySearch with ONE comprehensive query that combines the user's city
        and top interests, e.g.: "upcoming networking events, tech meetups, and
        [interest] conferences in [city] in [month] [year]".
-       IMPORTANT: Make only 1-2 search calls total to keep execution fast.
+       IMPORTANT: Make ONLY 1 search call total. Be concise.
     2. For each event found, extract: title, date/time, location, price, URL,
        organizer name, description, event type.
     3. Combine search results with any pre-parsed events from {raw_events}.
@@ -25,7 +25,7 @@ filter_events:
     JSON array of events, each with fields: source, source_id, source_url, title,
     description, datetime_start, location_name, location_city, ticket_price, currency,
     language, event_type, organizer_name, relevance_note, estimated_audience.
-    Minimum 3 events if available in the city. Maximum 15.
+    Minimum 3 events if available in the city. Maximum 5.
   agent: scout_agent
 
 score_events:
@@ -35,24 +35,12 @@ score_events:
     User context: {context}
     Deterministic scores (60%) are already calculated and included in each event's data.
 
-    For each event calculate:
-    1. Topic relevance (0-25 points): semantic comparison of event description
-       with user interests from context. Consider not only direct matches,
-       but also related topics.
-    2. Organizer quality (0-10 points): based on organizer_info from Scout Agent,
-       number of participants, repeat events.
-    3. Hidden costs / dress code (0-5 points): analyze description for implicit costs
-       (dress code, food not included, paid parking, etc.). 5 = no hidden costs.
-
-    total_score = deterministic_score + semantic_score (relevance + organizer + hidden)
-
-    Recommendation:
-    - 80-100: "strong_recommend"
-    - 60-79: "suitable"
-    - 40-59: "borderline"
-    - 0-39: "skip"
-
-    Return all events sorted by total_score (desc), and separately top-5.
+    For each event calculate semantic_score (0-40):
+    - topic relevance vs user interests (0-25)
+    - organizer quality (0-10)
+    - hidden costs check (0-5)
+    Add to deterministic_score for total_score.
+    Return top-5 sorted by total_score descending.
   expected_output: >
     JSON with full ranked list and separate top-5, each event with
     total_score, semantic_score, recommendation, recommendation_reason
