@@ -10,7 +10,7 @@ scout_agent:
     that match the user's profile. You know how to craft effective search
     queries and extract structured event data from search results.
     You always provide accurate dates, locations, and URLs.
-  llm: anthropic/claude-3-5-haiku-20241022
+  llm: anthropic/claude-haiku-4-5-20251001
   verbose: false
 
 analyst_agent:
@@ -27,7 +27,7 @@ analyst_agent:
     description matches user interests, whether the organizer is reliable, and
     whether there are hidden costs. You strictly follow the scoring model and
     do not inflate scores.
-  llm: anthropic/claude-sonnet-4-20250514
+  llm: anthropic/claude-sonnet-4-6
   verbose: false
 
 coach_agent:
@@ -43,7 +43,7 @@ coach_agent:
     a workshop needs one technique, a networking dinner needs another, and a
     large conference needs a third. Your challenges are specific, measurable
     and motivating.
-  llm: anthropic/claude-sonnet-4-20250514
+  llm: anthropic/claude-sonnet-4-6
   verbose: true
 
 booker_agent:
@@ -59,7 +59,7 @@ booker_agent:
     registration form, check if all necessary data is in the user profile,
     and form clear instructions for the auto-fill system. You also create
     Google Calendar events with proper reminders.
-  llm: anthropic/claude-3-5-haiku-20241022
+  llm: anthropic/claude-haiku-4-5-20251001
   verbose: true
 
 finance_agent:
@@ -73,7 +73,7 @@ finance_agent:
     of value of contacts received to costs. You maintain statistics, identify
     patterns (which types of events give the best ROI) and give recommendations
     for optimizing the networking budget.
-  llm: anthropic/claude-sonnet-4-20250514
+  llm: anthropic/claude-sonnet-4-6
   verbose: true
 
 onboarding_agent:
@@ -88,5 +88,5 @@ onboarding_agent:
     2-3 sentences and collect profile data through a casual dialogue. You are
     not pushy - if the user doesn't want to give email or LinkedIn, you calmly
     skip it. You group questions to avoid asking one at a time.
-  llm: anthropic/claude-sonnet-4-20250514
+  llm: anthropic/claude-sonnet-4-6
   verbose: true

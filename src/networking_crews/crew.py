@@ -36,7 +36,6 @@ class NetworkingCrews:
     def analyst_agent(self) -> Agent:
         return Agent(
             config=self.agents_config["analyst_agent"],
-            tools=[TransportCostTool(), GoogleCalendarTool()],
         )
 
     @agent
