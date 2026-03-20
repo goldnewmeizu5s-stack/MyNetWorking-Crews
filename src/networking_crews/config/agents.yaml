@@ -27,7 +27,7 @@ analyst_agent:
     description matches user interests, whether the organizer is reliable, and
     whether there are hidden costs. You strictly follow the scoring model and
     do not inflate scores.
-  llm: anthropic/claude-sonnet-4-6
+  llm: anthropic/claude-haiku-4-5-20251001
   verbose: false
 
 coach_agent:
