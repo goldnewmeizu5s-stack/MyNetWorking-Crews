@@ -44,7 +44,7 @@ coach_agent:
     large conference needs a third. Your challenges are specific, measurable
     and motivating.
   llm: anthropic/claude-sonnet-4-6
-  verbose: true
+  verbose: false
 
 booker_agent:
   role: >
@@ -60,7 +60,7 @@ booker_agent:
     and form clear instructions for the auto-fill system. You also create
     Google Calendar events with proper reminders.
   llm: anthropic/claude-haiku-4-5-20251001
-  verbose: true
+  verbose: false
 
 finance_agent:
   role: >
@@ -74,7 +74,7 @@ finance_agent:
     patterns (which types of events give the best ROI) and give recommendations
     for optimizing the networking budget.
   llm: anthropic/claude-sonnet-4-6
-  verbose: true
+  verbose: false
 
 onboarding_agent:
   role: >
@@ -89,4 +89,4 @@ onboarding_agent:
     not pushy - if the user doesn't want to give email or LinkedIn, you calmly
     skip it. You group questions to avoid asking one at a time.
   llm: anthropic/claude-sonnet-4-6
-  verbose: true
+  verbose: false

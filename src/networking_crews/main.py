@@ -7,10 +7,15 @@ from networking_crews.crew import NetworkingCrews
 def run():
     """Entry point for CrewAI Platform."""
     inputs = {
-        "raw_events": [],
-        "context": {},
+        "raw_events": "[]",
+        "context": "{}",
+        "user_profile": "{}",
+        "debrief_data": "[]",
+        "period": "",
+        "event": "any",
+        "existing_data": "[]",
     }
-    NetworkingCrews().discovery_crew().kickoff(inputs=inputs)
+    NetworkingCrews().crew().kickoff(inputs=inputs)
 
 
 def train():
